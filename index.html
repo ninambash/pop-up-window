@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Browser Detection</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 100px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <title>Popup Example</title>
 </head>
 <body>
-    <h1>Browser Detection</h1>
-    <script>
-        function detectBrowser() {
-            var userAgent = navigator.userAgent;
+    <h1>JavaScript Pop-Up Window</h1>
+    <button onclick="showPopup()">Click here to activate Remote Window</button>
 
-            if (userAgent.indexOf("Chrome") != -1) {
-                alert("You are using Google Chrome.");
-            } else if (userAgent.indexOf("Firefox") != -1) {
-                alert("You are using Mozilla Firefox.");
-            } else if (userAgent.indexOf("Safari") != -1) {
-                alert("You are using Apple Safari.");
-            } else if (userAgent.indexOf("Edge") != -1) {
-                alert("You are using Microsoft Edge.");
-            } else if (userAgent.indexOf("Opera") != -1 || userAgent.indexOf("OPR") != -1) {
-                alert("You are using Opera.");
-            } else {
-                alert("Your browser is not detected or is not supported.");
-            }
+    <div id="overlay"></div>
+
+    <div id="popup">
+        <span id="close-btn" onclick="closePopup()">x</span>
+        <h2>Pop-up Content</h2>
+        <p>This is a pop-up window. Click the close button to hide it.</p>
+
+        <a href="/index2.html" target="_blank">Open Function Example</a>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
         }
 
-        detectBrowser();
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
     </script>
 </body>
 </html>
